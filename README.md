@@ -81,7 +81,7 @@ the path even if it contains spaces. Also make sure you separated from previous 
 **Create an *application.properties* text file in your project.
 Put this file in the src/main/resources directory.**  
 
-In Development mode I strongly recommend using H2 (in memory databse)
+In Development mode I strongly recommend using H2 (in memory database)
 
 **Application Properties for H2**
 
@@ -98,7 +98,9 @@ spring.h2.console.enabled=true
 
 * Login and hit Connect
 
-**Connect to MySQL**
+#### MySQL
+
+**Create Database and Connect**
 
 * Create *salvo* Database in your MySql admin
 * Change your application properties to:
