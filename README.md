@@ -56,6 +56,72 @@ sdk install gradle 2.14.1
 * Then add "C:\Program Files\gradle-x.x\bin", or wherever you unzipped Gradle to, to the end of your "Path" variable under
 * System Properties 
 
+
 **TIP:**
 Remember to replace the x.x in the example with the gradle version number you downloaded.  Be sure to omit any quotation marks around
 the path even if it contains spaces. Also make sure you separated from previous PATH entries with a semicolon ";".
+
+
+### Running The App
+
+**From the Terminal:**
+
+```
+./gradlew bootRun
+
+```
+
+**From the IDE:**
+
+* Open the Gradle tool window
+* Select the Gradle task application | bootRun
+
+### Databases
+
+In Development mode I strongly recommend using H2 (in memory databse)
+
+**Application Properties for H2**
+
+In the application.properties add this line:
+
+```
+spring.h2.console.enabled=true
+
+```
+
+**Access to H2 Console**
+
+* Open http://localhost:8080/h2-console
+
+* Login and hit Connect
+
+**Connect to MySQL**
+
+* Create *salvo* Database in your MySql admin
+* Change your application properties to:
+```
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url = jdbc:mysql://localhost:3306/salvo
+spring.datasource.username = YOUR_USERNAME
+spring.datasource.password = YOUR_PASSWORD
+```
+
+### Some Extra Configuration (recommended)
+
+To avoid accidental name conflicts between the RestRepository controller and anything else we have, tell Spring to use /rest as a prefix for all
+RestRepository URLs.
+
+Add the following line to application.properties:
+```
+spring.data.rest.base-path=/rest
+spring.jackson.serialization.INDENT_OUTPUT=true
+```
+
+The first one tells Spring to
+put /rest in front of all RestRepository URLs, e.g., /rest/games instead of /games
+
+The second to send all JSON, from any source, in a nicely indented form
+
+
+
+
