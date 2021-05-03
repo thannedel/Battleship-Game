@@ -78,6 +78,9 @@ the path even if it contains spaces. Also make sure you separated from previous 
 
 ### Databases
 
+**Create an *application.properties* text file in your project.
+Put this file in the src/main/resources directory.**  
+
 In Development mode I strongly recommend using H2 (in memory databse)
 
 **Application Properties for H2**
@@ -111,7 +114,7 @@ spring.datasource.password = YOUR_PASSWORD
 To avoid accidental name conflicts between the RestRepository controller and anything else we have, tell Spring to use /rest as a prefix for all
 RestRepository URLs.
 
-Add the following line to application.properties:
+Add the following lines to application.properties:
 ```
 spring.data.rest.base-path=/rest
 spring.jackson.serialization.INDENT_OUTPUT=true
