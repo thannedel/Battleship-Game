@@ -6,5 +6,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
 public interface PlayerRepository extends JpaRepository<Player,Integer> {
-    Player findByUserName(String username);
+    Player findByUsername(String username);
 }
