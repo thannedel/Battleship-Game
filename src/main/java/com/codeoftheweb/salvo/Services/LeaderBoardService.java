@@ -22,12 +22,12 @@ public class LeaderBoardService {
     }
 
     final Map<String,Object> scoresDto(Player player){
-        List<Object> list = player.getScores().stream().map(score -> score.getScore()).collect(Collectors.toList());
+        List<Object> listOfScores = player.getScores().stream().map(score -> score.getScore()).collect(Collectors.toList());
         Map<String,Object> dto = new LinkedHashMap<>();
         dto.put("player",player.getUsername());
-        dto.put("win", Collections.frequency(list,1.0));
-        dto.put("loss",Collections.frequency(list,0.0));
-        dto.put("tie",Collections.frequency(list,0.5));
+        dto.put("win", Collections.frequency(listOfScores,1.0));
+        dto.put("loss",Collections.frequency(listOfScores,0.0));
+        dto.put("tie",Collections.frequency(listOfScores,0.5));
         dto.put("total",player.getScores().stream().mapToDouble(score -> score.getScore()).sum());
     return dto;
     }
